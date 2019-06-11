@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "properties": {
+        "domain": {
+            "required": true,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "string"
+        },
+        "must_have_default_avatar": {
+            "type": "boolean"
+        }
+    }
+}

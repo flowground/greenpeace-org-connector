@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "UUID": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

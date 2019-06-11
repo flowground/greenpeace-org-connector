@@ -1,0 +1,136 @@
+{
+    "title": "Greenwire Public",
+    "description": "Greenpeace Greenwire allows you connect with other volunteers, activists and groups working on environmental campaigns all across the world!",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/greenpeace.org/1.0.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://greenwire.greenpeace.org/api/public",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_events": {
+            "main": "./lib/actions/get_events.js",
+            "title": "Return the upcoming events (e.g. start date >= today). Gets an array of `Event` object. Mandatory query param of **domain** determines the site / country the event belongs to.",
+            "description": "Return the upcoming events (e.g. start date >= today). Gets an array of `Event` object. Mandatory query param of **domain** determines the site / country the event belongs to.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_events.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_events__UUID_": {
+            "main": "./lib/actions/get_events__UUID_.js",
+            "title": "Get one `Event` object by specifying its UUID in the url path.",
+            "description": "Get one `Event` object by specifying its UUID in the url path.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_events__UUID_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_groups": {
+            "main": "./lib/actions/get_groups.js",
+            "title": "Gets an array of `Group` object. Mandatory query param of **domain** determines the site / country the group belongs to.",
+            "description": "Gets an array of `Group` object. Mandatory query param of **domain** determines the site / country the group belongs to.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_groups.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_groups__UUID_": {
+            "main": "./lib/actions/get_groups__UUID_.js",
+            "title": "Get one `Group` object by specifying its UUID in the url path.",
+            "description": "Get one `Group` object by specifying its UUID in the url path.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_groups__UUID_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_volunteers": {
+            "main": "./lib/actions/get_volunteers.js",
+            "title": "Gets an array of `Volunteer` object. Mandatory query param of **domain** determines the site / country the volunteers are from.",
+            "description": "Gets an array of `Volunteer` object. Mandatory query param of **domain** determines the site / country the volunteers are from.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_volunteers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_volunteers__UUID_": {
+            "main": "./lib/actions/get_volunteers__UUID_.js",
+            "title": "Get one specific `Volunteer` object by specifying its UUID in the url path.",
+            "description": "Get one specific `Volunteer` object by specifying its UUID in the url path.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_volunteers__UUID_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
